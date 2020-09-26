@@ -35,12 +35,5 @@ provisioner:
       all:
         {{ role_name | replace('ansible-role-', '') | replace('-','_') }}_role_enabled: True
 verifier:
-  name: testinfra
-  env:
-    PYTHONWARNINGS: "ignore"
-  directory: ../resources/tests
-  options:
-    v: True
-    sudo: True
-
+  name: ansible
 

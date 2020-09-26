@@ -1,0 +1,15 @@
+---
+# role: {{ role_name }}
+# file:
+
+- name: Verfy
+  hosts: all
+  pre_tasks:
+    - name: "Include variables to converge playbook"
+      include_vars: vars.yml
+  tasks:
+    - name: Assert {{ role_name }} is enabled
+      assert:
+        that:
+          - "{{ role_name | replace('ansible-role-', '') | replace('-','_') }}_role_enabled | bool"
+
